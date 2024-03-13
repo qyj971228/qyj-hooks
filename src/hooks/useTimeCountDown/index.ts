@@ -3,7 +3,7 @@ import { onBeforeUnmount, onMounted, ref } from "vue";
 
 const defaultTargetDate = "2099-12-31 23:59:59";
 
-export function useTimeCountDown(target?: string) {
+export function useTimeCountDown(target: string = defaultTargetDate) {
   const years = ref(0);
   const months = ref(0);
   const days = ref(0);
@@ -12,7 +12,7 @@ export function useTimeCountDown(target?: string) {
   const seconds = ref(0);
 
   function updateTimeLeft() {
-    const targetDate = moment(target ?? defaultTargetDate);
+    const targetDate = moment(target);
     const now = moment();
     const diff = targetDate.diff(now);
     const duration = moment.duration(diff);
