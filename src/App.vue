@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import UsePaginationDemo from "@/hooks/usePagination/demo.vue";
+import { UsePaginationDemo, UseOppositeDemo } from "@/hooks/demo";
 </script>
 
 <template>
   <UsePaginationDemo></UsePaginationDemo>
+  <hr />
+  <UseOppositeDemo></UseOppositeDemo>
 </template>
