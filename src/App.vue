@@ -3,6 +3,8 @@ import {
   UsePaginationDemo,
   UseOppositeDemo,
   UseTimeCountDownDemo,
+  UseEventListenerDemo,
+  UseWindowEventListenerDemo
 } from "@/hooks/demo";
 </script>
 
@@ -12,4 +14,8 @@ import {
   <UseOppositeDemo></UseOppositeDemo>
   <hr />
   <UseTimeCountDownDemo></UseTimeCountDownDemo>
+  <hr />
+  <UseEventListenerDemo></UseEventListenerDemo>
+  <hr />
+  <useWindowEventListenerDemo></useWindowEventListenerDemo>
 </template>

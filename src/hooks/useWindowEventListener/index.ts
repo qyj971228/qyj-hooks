@@ -8,14 +8,13 @@ export function useWindowEventListener(event: string, callback: Function) {
     clear()
   })
   function add() {
-    window.addEventListener(event, () => {
-      callback()
+    window.addEventListener(event, (e) => {
+      callback(e)
     })
   }
   function clear() {
-    window.removeEventListener(event, () => {
-      callback()
+    window.removeEventListener(event, (e) => {
+      callback(e)
     })
   }
-  return [add, clear]
 }
