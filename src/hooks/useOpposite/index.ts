@@ -1,7 +1,7 @@
 import { ref } from "vue";
 
-export function useOpposite(arr: [any, any]) {
-  const [defaultVal, oppsiteVal] = arr;
+export function useOpposite(status: [any, any] = [false, true]) {
+  const [defaultVal, oppsiteVal] = status;
 
   const state = ref(defaultVal);
 

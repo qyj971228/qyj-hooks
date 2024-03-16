@@ -6,6 +6,7 @@ import {
   UseEventListenerDemo,
   UseWindowEventListenerDemo,
   UseSetIntervalDemo,
+  UseFetchingDemo,
 } from "@/hooks/demo";
 </script>
 
@@ -21,4 +22,6 @@ import {
   <UseWindowEventListenerDemo></UseWindowEventListenerDemo>
   <hr />
   <UseSetIntervalDemo></UseSetIntervalDemo>
+  <hr />
+  <UseFetchingDemo></UseFetchingDemo>
 </template>
