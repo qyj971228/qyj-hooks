@@ -2,8 +2,6 @@
 import { useWindowEventListener } from '@/hooks'
 import { ref } from 'vue';
 
-const input = ref<HTMLInputElement>()
-
 useWindowEventListener('mousemove', onMouseMove)
 
 function onMouseMove(e: Event) {
