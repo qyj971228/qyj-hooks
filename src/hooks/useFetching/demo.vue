@@ -13,15 +13,15 @@ function fetchData() {
     }, 1000);
   });
 }
-function init() {
-  fetchHelper(async () => {
-    const res = await fetchData();
-  });
+async function initData() {
+  const res = await fetchData();
+  console.log(res);
 }
+
 </script>
 
 <template>
   <div>状态: {{ fetching ? "请求中" : "已获取" }}</div>
   <div>请求次数: {{ count }}</div>
-  <button @click="init">发送请求</button>
+  <button @click="fetchHelper(initData)">发送请求</button>
 </template>
