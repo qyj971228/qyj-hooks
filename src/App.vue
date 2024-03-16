@@ -4,7 +4,8 @@ import {
   UseOppositeDemo,
   UseTimeCountDownDemo,
   UseEventListenerDemo,
-  UseWindowEventListenerDemo
+  UseWindowEventListenerDemo,
+  UseSetIntervalDemo,
 } from "@/hooks/demo";
 </script>
 
@@ -17,5 +18,7 @@ import {
   <hr />
   <UseEventListenerDemo></UseEventListenerDemo>
   <hr />
-  <useWindowEventListenerDemo></useWindowEventListenerDemo>
+  <UseWindowEventListenerDemo></UseWindowEventListenerDemo>
+  <hr />
+  <UseSetIntervalDemo></UseSetIntervalDemo>
 </template>
