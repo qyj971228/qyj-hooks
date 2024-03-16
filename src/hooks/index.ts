@@ -3,7 +3,7 @@ import { useOpposite } from "./useOpposite";
 import { useTimeCountDown } from "./useTimeCountDown";
 import { useEventListener } from "./useEventListener";
 import { useWindowEventListener } from "./useWindowEventListener";
-import { useSetInterval } from "./useSetInterval";
+import { useInterval } from "./useInterval";
 import { useFetching } from "./useFetching";
 
 export {
@@ -12,6 +12,6 @@ export {
   useTimeCountDown,
   useEventListener,
   useWindowEventListener,
-  useSetInterval,
+  useInterval,
   useFetching
 };

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useSetInterval } from "@/hooks";
+import { useInterval } from "@/hooks";
 import { ref } from "vue";
 
 const count = ref(0);
 
-const { clear, reset } = useSetInterval(() => {
+const { clear, reset } = useInterval(() => {
   count.value += 1;
 }, 1000);
 

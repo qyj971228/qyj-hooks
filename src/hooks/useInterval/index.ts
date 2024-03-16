@@ -1,6 +1,6 @@
 import { ref } from "vue";
 
-export function useSetInterval(callback: Function, delay: number) {
+export function useInterval(callback: Function, delay: number) {
   const timeout = ref();
 
   set();
