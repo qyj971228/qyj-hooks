@@ -4,7 +4,7 @@ import { useTimeCountDown } from "./useTimeCountDown";
 import { useEventListener } from "./useEventListener";
 import { useWindowEventListener } from "./useWindowEventListener";
 import { useInterval } from "./useInterval";
-import { useFetching } from "./useFetching";
+import { useAroundExecution } from "./useAroundExecution";
 
 export {
   usePagination,
@@ -13,5 +13,5 @@ export {
   useEventListener,
   useWindowEventListener,
   useInterval,
-  useFetching
+  useAroundExecution
 };
