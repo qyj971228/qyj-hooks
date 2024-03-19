@@ -1,25 +1,23 @@
-// import { useEffect, useState } from 'react'
+import { onBeforeUnmount, onMounted, ref } from "vue";
 
-// function useDarkThemeListener() {
-//   const [isDarkMode, setIsDarkMode] = useState<boolean>()
+export function useDarkThemeListener() {
+  const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)')
 
-//   useEffect(() => {
-//     const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)')
+  const isDarkMode = ref<boolean>(mediaQueryList.matches)
 
-//     setIsDarkMode(mediaQueryList.matches)
+  function handler(event: MediaQueryListEvent) {
+    isDarkMode.value = event.matches
+  }
 
-//     const handleChange = (event: MediaQueryListEvent) => {
-//       setIsDarkMode(event.matches)
-//     }
+  onMounted(() => {
+    mediaQueryList.addEventListener('change', handler)
+  })
 
-//     mediaQueryList.addEventListener('change', handleChange)
+  onBeforeUnmount(() => {
+    mediaQueryList.removeEventListener('change', handler)
+  })
 
-//     return () => {
-//       mediaQueryList.removeEventListener('change', handleChange)
-//     }
-//   }, [])
-
-//   return isDarkMode
-// }
-
-// export default useDarkThemeListener
+  return {
+    isDarkMode
+  }
+}
