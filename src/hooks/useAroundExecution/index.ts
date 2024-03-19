@@ -30,3 +30,23 @@ export function useAroundExecution(
     loader,
   };
 }
+
+// import { useRoundExecution, useFetching } from "@/hooks";
+
+// export function useAroundExecution(
+//   asyncCallback: () => Promise<void>,
+//   before: () => void,
+//   after: () => void
+// ) {
+//   const [fetch] = useFetching(async () => await asyncCallback());
+//   const [loader] = useRoundExecution(
+//     async () => await fetch(),
+//     () => before(),
+//     () => after()
+//   );
+
+//   return {
+//     loader,
+//   };
+// }
+
