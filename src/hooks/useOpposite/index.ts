@@ -1,21 +1,27 @@
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
-export function useOpposite(status: [boolean, boolean]) {
-  const [defaultVal, oppositeVal] = status;
+export function useOpposite<T, K>(status: [T, K]) {
 
-  const state = ref(defaultVal)
+  const DEFAULT = 0
+  const OPPOSITE = 1
+
+  const state = ref(DEFAULT)
 
   function opposite() {
-    state.value = state.value === defaultVal ? oppositeVal : defaultVal;
+    state.value = state.value === DEFAULT ? OPPOSITE : DEFAULT;
   }
 
   function recover() {
-    state.value = defaultVal;
+    state.value = DEFAULT;
   }
 
   function reverse() {
-    state.value = oppositeVal;
+    state.value = OPPOSITE;
   }
 
-  return { state, opposite, recover, reverse };
+  const resultState = computed(() => {
+    return state.value === DEFAULT ? status[0] : status[1]
+  })
+
+  return { state: resultState, opposite, recover, reverse };
 }
