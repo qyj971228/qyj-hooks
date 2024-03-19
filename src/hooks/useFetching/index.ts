@@ -5,10 +5,10 @@ export function useFetching(asyncCallback: () => Promise<void>) {
     state: isFetching,
     recover: endFetch,
     reverse: startFetch,
-  } = useOpposite();
+  } = useOpposite([false, true]);
 
   async function loader() {
-    if (!isFetching.value) return;
+    if (isFetching.value) return
     startFetch();
     try {
       await asyncCallback();
@@ -17,7 +17,8 @@ export function useFetching(asyncCallback: () => Promise<void>) {
     }
   }
 
-  return [
+  return {
+    isFetching,
     loader,
-  ];
+  };
 }

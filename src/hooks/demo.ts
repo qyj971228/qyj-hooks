@@ -4,7 +4,8 @@ import UseTimeCountDownDemo from "@/hooks/useTimeCountDown/demo.vue";
 import UseEventListenerDemo from "@/hooks/useEventListener/demo.vue";
 import UseWindowEventListenerDemo from "@/hooks/useWindowEventListener/demo.vue";
 import UseIntervalDemo from "@/hooks/useInterval/demo.vue";
-import UseAroundExecutionDemo from "@/hooks/useAroundExecution/demo.vue";
+import UseFetchingDemo from "@/hooks/useFetching/demo.vue"
+import UseFetchingAroundExecutionDemo from "@/hooks/useFetchingAroundExecution/demo.vue"
 
 export {
   UsePaginationDemo,
@@ -13,5 +14,6 @@ export {
   UseEventListenerDemo,
   UseWindowEventListenerDemo,
   UseIntervalDemo,
-  UseAroundExecutionDemo,
+  UseFetchingAroundExecutionDemo,
+  UseFetchingDemo,
 };

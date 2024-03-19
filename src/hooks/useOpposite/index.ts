@@ -1,18 +1,21 @@
-import { ref } from "vue";
+import { ref } from 'vue';
 
-export function useOpposite(status: [any, any] = [false, true]) {
-  const [defaultVal, oppsiteVal] = status;
+export function useOpposite(status: [boolean, boolean]) {
+  const [defaultVal, oppositeVal] = status;
 
-  const state = ref(defaultVal);
+  const state = ref(defaultVal)
 
-  function oppsite() {
-    state.value = state.value == defaultVal ? oppsiteVal : defaultVal;
+  function opposite() {
+    state.value = state.value === defaultVal ? oppositeVal : defaultVal;
   }
+
   function recover() {
     state.value = defaultVal;
   }
+
   function reverse() {
-    state.value = oppsiteVal;
+    state.value = oppositeVal;
   }
-  return { state, oppsite, recover, reverse };
+
+  return { state, opposite, recover, reverse };
 }
