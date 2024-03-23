@@ -16,8 +16,13 @@ export function useFetching(
     try {
       await asyncCallback();
     } catch (e) {
-      const error = new Error();
-      error.message = e as string;
+      let error = new Error();
+      if (e instanceof Error) {
+        error = e
+      } else {
+        error.message = e as string
+        error.name = 'Error'
+      }
       if (errorCatchCallback) {
         errorCatchCallback(error);
       } else {
