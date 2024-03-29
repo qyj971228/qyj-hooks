@@ -11,7 +11,7 @@ const val = ref("未请求");
 const error = ref();
 const res = ref();
 
-// 在后置函数中获取错误并处理
+// 后置错误处理
 const { loader } = useFetchingAroundExecution(
   async () => {
     res.value = await fetchData();
@@ -28,6 +28,26 @@ const { loader } = useFetchingAroundExecution(
     val.value = "请求完毕";
   }
 );
+
+// 手动处理
+// const { loader } = useFetchingAroundExecution(
+//   async () => {
+//     try {
+//       res.value = await fetchData();
+//     } catch (e) {
+//       error.value = (e as Error).message;
+//     }
+
+//   },
+//   () => {
+//     countBefore.value++;
+//     val.value = "请求中";
+//   },
+//   () => {
+//     countAfter.value++;
+//     val.value = "请求完毕";
+//   }
+// );
 
 function fetchData() {
   return new Promise((resolve, reject) => {
@@ -51,14 +71,11 @@ function fetchData() {
   <div>前置函数执行次数: {{ countBefore }}</div>
   <div>后置函数执行次数: {{ countAfter }}</div>
   <div>点击触发次数: {{ clickCount }}</div>
-  <button
-    @click="
-      () => {
-        loader();
-        clickCount++;
-      }
-    "
-  >
+  <button @click="() => {
+      loader();
+      clickCount++;
+    }
+    ">
     发送请求
   </button>
 </template>
