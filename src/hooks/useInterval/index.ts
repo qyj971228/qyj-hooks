@@ -1,9 +1,7 @@
-import { ref } from "vue";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 
 export function useInterval(callback: Function, delay: number) {
   const timeout = ref();
-
-  set();
 
   function clear() {
     timeout.value && clearInterval(timeout.value);
@@ -12,6 +10,14 @@ export function useInterval(callback: Function, delay: number) {
   function set() {
     timeout.value = setInterval(() => callback(), delay);
   }
+
+  onMounted(() => {
+    set();
+  });
+
+  onBeforeUnmount(() => {
+    clear();
+  });
 
   return {
     clear,
