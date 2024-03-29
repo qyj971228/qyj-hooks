@@ -1,5 +1,6 @@
 import moment from "moment";
-import { onBeforeUnmount, onMounted, ref } from "vue";
+import { ref } from "vue";
+import { useInterval } from "../useInterval";
 
 const defaultTargetDate = "2099-12-31 23:59:59";
 
@@ -27,15 +28,7 @@ export function useTimeCountDown(target: string = defaultTargetDate) {
 
   updateTimeLeft();
 
-  let interval: number | undefined;
-
-  onMounted(() => {
-    interval = setInterval(updateTimeLeft, 1000);
-  });
-
-  onBeforeUnmount(() => {
-    clearInterval(interval);
-  });
+  useInterval(() => updateTimeLeft(), 1000);
 
   return {
     years,
