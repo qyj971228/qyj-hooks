@@ -4,11 +4,11 @@ export default function useFunctionPassing<T>(getKey: Symbol, initKey: Symbol) {
   type SetPassingFunctoin = (func: T) => void;
 
   function provider() {
-    const passingFunctio = ref<T>();
-    provide(getKey, readonly(passingFunctio));
+    const passingFunction = ref<T>();
+    provide(getKey, readonly(passingFunction));
 
     function set(func: T) {
-      passingFunctio.value = func;
+      passingFunction.value = func;
     }
     provide(initKey, set);
   }
