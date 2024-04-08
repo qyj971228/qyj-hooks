@@ -4,9 +4,10 @@ import UseTimeCountDownDemo from "@/hooks/useTimeCountDown/demo.vue";
 import UseEventListenerDemo from "@/hooks/useEventListener/demo.vue";
 import UseWindowEventListenerDemo from "@/hooks/useWindowEventListener/demo.vue";
 import UseIntervalDemo from "@/hooks/useInterval/demo.vue";
-import UseFetchingDemo from "@/hooks/useFetching/demo.vue"
-import UseFetchingAroundExecutionDemo from "@/hooks/useFetchingAroundExecution/demo.vue"
-import UseDarkThemeListenerDemo from "@/hooks/useDarkThemeListener/demo.vue"
+import UseFetchingDemo from "@/hooks/useFetching/demo.vue";
+import UseFetchingAroundExecutionDemo from "@/hooks/useFetchingAroundExecution/demo.vue";
+import UseDarkThemeListenerDemo from "@/hooks/useDarkThemeListener/demo.vue";
+import UseElementSizeDemo from "@/hooks/useElementSize/demo.vue";
 
 export {
   UsePaginationDemo,
@@ -17,5 +18,6 @@ export {
   UseIntervalDemo,
   UseFetchingAroundExecutionDemo,
   UseFetchingDemo,
-  UseDarkThemeListenerDemo
+  UseDarkThemeListenerDemo,
+  UseElementSizeDemo,
 };

@@ -8,7 +8,8 @@ import {
   UseIntervalDemo,
   UseFetchingAroundExecutionDemo,
   UseFetchingDemo,
-  UseDarkThemeListenerDemo
+  UseDarkThemeListenerDemo,
+  UseElementSizeDemo,
 } from "@/hooks/demo";
 </script>
 
@@ -30,4 +31,6 @@ import {
   <UseFetchingAroundExecutionDemo></UseFetchingAroundExecutionDemo>
   <hr />
   <UseDarkThemeListenerDemo></UseDarkThemeListenerDemo>
+  <hr />
+  <UseElementSizeDemo></UseElementSizeDemo>
 </template>

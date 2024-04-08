@@ -7,6 +7,7 @@ import { useInterval } from "./useInterval";
 import { useFetching } from "./useFetching";
 import { useFetchingAroundExecution } from "./useFetchingAroundExecution";
 import { useDarkThemeListener } from "./useDarkThemeListener";
+import { useElementSize } from "./useElementSize";
 
 export {
   usePagination,
@@ -17,5 +18,6 @@ export {
   useInterval,
   useFetchingAroundExecution,
   useFetching,
-  useDarkThemeListener
+  useDarkThemeListener,
+  useElementSize
 };
