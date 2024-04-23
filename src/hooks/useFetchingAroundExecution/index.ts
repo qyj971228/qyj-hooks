@@ -1,25 +1,30 @@
-import { useFetching } from "@/hooks";
-import { ref, watch } from "vue";
+import { useOpp } from "@/hooks";
+import { watch, type ComputedRef } from "vue";
 
-export function useFetchingAroundExecution(
+export function useArdExec(
   asyncCallback: () => Promise<void>,
-  before: () => void,
-  after: (e?: Error) => void
-) {
-  const { isFetching, loader } = useFetching(
-    async () => await asyncCallback(),
-    (e) => after && after(e)
-  );
+  before?: () => void,
+  after?: () => void
+): [() => Promise<void>, ComputedRef<boolean>] {
+  const [isFetching, endFetch, startFetch] = useOpp();
 
   watch(isFetching, (val) => {
     if (val) {
-      before();
+      before && before();
     } else {
-      after();
+      after && after();
     }
   });
 
-  return {
-    loader,
-  };
+  async function loader() {
+    if (isFetching.value) return;
+    startFetch();
+    try {
+      await asyncCallback();
+    } finally {
+      endFetch();
+    }
+  }
+
+  return [loader, isFetching];
 }

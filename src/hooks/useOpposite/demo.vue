@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useOpposite } from "@/hooks";
+import { useOpp } from "@/hooks";
 
-const { state, opposite, recover, reverse } = useOpposite([true, false]);
+const [ state, opposite, recover, reverse ] = useOpp([true, false]);
 </script>
 
 <template>

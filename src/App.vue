@@ -7,7 +7,6 @@ import {
   UseWindowEventListenerDemo,
   UseIntervalDemo,
   UseFetchingAroundExecutionDemo,
-  UseFetchingDemo,
   UseDarkThemeListenerDemo,
   UseElementSizeDemo,
 } from "@/hooks/demo";
@@ -25,8 +24,6 @@ import {
   <UseWindowEventListenerDemo></UseWindowEventListenerDemo>
   <hr />
   <UseIntervalDemo></UseIntervalDemo>
-  <hr />
-  <UseFetchingDemo></UseFetchingDemo>
   <hr />
   <UseFetchingAroundExecutionDemo></UseFetchingAroundExecutionDemo>
   <hr />

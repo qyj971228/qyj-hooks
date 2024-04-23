@@ -1,27 +1,33 @@
-import { computed, ref } from 'vue';
+import { computed, ref, type ComputedRef } from "vue";
 
-export function useOpposite<T, K>(status: [T, K]) {
+type UseOppReturnType<T, K> = T extends unknown
+  ? [ComputedRef<boolean>, () => void, () => void, () => void]
+  : [ComputedRef<boolean | T | K>, () => void, () => void, () => void];
 
-  const DEFAULT = 0
-  const OPPOSITE = 1
-
-  const state = ref(DEFAULT)
+export function useOpp<T, K>(status?: [T, K]): UseOppReturnType<T, K> {
+  const DEFAULT = false;
+  const OPPOSITE = true;
+  const state = ref(DEFAULT);
 
   function opposite() {
     state.value = state.value === DEFAULT ? OPPOSITE : DEFAULT;
   }
-
   function recover() {
     state.value = DEFAULT;
   }
-
   function reverse() {
     state.value = OPPOSITE;
   }
 
   const resultState = computed(() => {
-    return state.value === DEFAULT ? status[0] : status[1]
-  })
+    return state.value === DEFAULT
+      ? status
+        ? status[0]
+        : DEFAULT
+      : status
+      ? status[1]
+      : OPPOSITE;
+  });
 
-  return { state: resultState, opposite, recover, reverse };
+  return [resultState as any, recover, reverse, opposite] as any;
 }

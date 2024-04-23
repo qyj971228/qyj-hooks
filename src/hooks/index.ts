@@ -1,23 +1,21 @@
 import { usePagination } from "./usePagination";
-import { useOpposite } from "./useOpposite";
+import { useOpp } from "./useOpposite";
 import { useTimeCountDown } from "./useTimeCountDown";
 import { useEventListener } from "./useEventListener";
 import { useWindowEventListener } from "./useWindowEventListener";
 import { useInterval } from "./useInterval";
-import { useFetching } from "./useFetching";
-import { useFetchingAroundExecution } from "./useFetchingAroundExecution";
+import { useArdExec } from "./useFetchingAroundExecution";
 import { useDarkThemeListener } from "./useDarkThemeListener";
 import { useElementSize } from "./useElementSize";
 
 export {
   usePagination,
-  useOpposite,
+  useOpp,
   useTimeCountDown,
   useEventListener,
   useWindowEventListener,
   useInterval,
-  useFetchingAroundExecution,
-  useFetching,
+  useArdExec,
   useDarkThemeListener,
   useElementSize
 };
