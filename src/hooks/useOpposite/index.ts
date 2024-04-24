@@ -1,8 +1,11 @@
 import { computed, ref, type ComputedRef } from "vue";
 
-type UseOppReturnType<T, K> = T extends unknown
-  ? [ComputedRef<boolean>, () => void, () => void, () => void]
-  : [ComputedRef<boolean | T | K>, () => void, () => void, () => void];
+type UseOppReturnType<T, K> = [
+  T extends unknown ? ComputedRef<boolean> : ComputedRef<boolean | T | K>,
+  () => void,
+  () => void,
+  () => void
+];
 
 export function useOpp<T, K>(status?: [T, K]): UseOppReturnType<T, K> {
   const DEFAULT = false;
