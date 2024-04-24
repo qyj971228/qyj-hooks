@@ -1,30 +1,24 @@
 import { useOpp } from "@/hooks";
-import { watch, type ComputedRef } from "vue";
+import { type ComputedRef } from "vue";
 
-export function useArdExec(
+export function useArdExecArr(
   asyncCallback: () => Promise<void>,
   before?: () => void,
   after?: () => void
 ): [() => Promise<void>, ComputedRef<boolean>] {
-  const [isFetching, endFetch, startFetch] = useOpp();
-
-  watch(isFetching, (val) => {
-    if (val) {
-      before && before();
-    } else {
-      after && after();
-    }
-  });
+  const [state, endFetch, startFetch] = useOpp();
 
   async function loader() {
-    if (isFetching.value) return;
-    startFetch();
     try {
+      if (state.value) return;
+      before && before();
+      startFetch();
       await asyncCallback();
     } finally {
       endFetch();
+      after && after();
     }
   }
 
-  return [loader, isFetching];
+  return [loader, state];
 }
