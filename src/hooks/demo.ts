@@ -7,6 +7,7 @@ import UseIntervalDemo from "@/hooks/useInterval/demo.vue";
 import UseFetchingAroundExecutionDemo from "@/hooks/useFetchingAroundExecution/demo.vue";
 import UseDarkThemeListenerDemo from "@/hooks/useDarkThemeListener/demo.vue";
 import UseElementSizeDemo from "@/hooks/useElementSize/demo.vue";
+import UseCurrentDemo from "@/hooks/useCurrentTime/demo.vue";
 
 export {
   UsePaginationDemo,
@@ -18,4 +19,5 @@ export {
   UseFetchingAroundExecutionDemo,
   UseDarkThemeListenerDemo,
   UseElementSizeDemo,
+  UseCurrentDemo,
 };

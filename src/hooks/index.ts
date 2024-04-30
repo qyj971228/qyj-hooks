@@ -7,6 +7,7 @@ import { useInterval } from "./useInterval";
 import { useArdExec } from "./useFetchingAroundExecution";
 import { useDarkThemeListener } from "./useDarkThemeListener";
 import { useElementSize } from "./useElementSize";
+import { useCurrentTime } from './useCurrentTime'
 
 export {
   usePagination,
@@ -17,5 +18,6 @@ export {
   useInterval,
   useArdExec,
   useDarkThemeListener,
-  useElementSize
+  useElementSize,
+  useCurrentTime
 };

@@ -1,7 +1,7 @@
 import { useOpp } from "@/hooks";
 import { type ComputedRef } from "vue";
 
-export function useArdExecArr(
+export function useArdExec(
   asyncCallback: () => Promise<void>,
   before?: () => void,
   after?: () => void
