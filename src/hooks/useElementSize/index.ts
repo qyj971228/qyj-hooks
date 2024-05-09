@@ -1,6 +1,9 @@
 import { onBeforeUnmount, onMounted, ref, watch, type Ref } from "vue";
 
-export function useElementSize(domRef: Ref<HTMLElement>) {
+export function useElementSize(
+  domRef: Ref<HTMLElement>,
+  callback?: () => void
+) {
   const height = ref<number>();
   const width = ref<number>();
   const contentRect = ref<DOMRectReadOnly>();
@@ -9,6 +12,7 @@ export function useElementSize(domRef: Ref<HTMLElement>) {
     height.value = e[0].contentRect.height;
     width.value = e[0].contentRect.width;
     contentRect.value = e[0].contentRect;
+    callback && callback();
   });
 
   watch(domRef, () => {

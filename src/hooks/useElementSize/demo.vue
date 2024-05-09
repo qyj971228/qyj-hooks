@@ -3,7 +3,9 @@ import { useElementSize } from "@/hooks";
 import { ref } from "vue";
 
 const domRef = ref();
-const { height, width } = useElementSize(domRef);
+const { height, width } = useElementSize(domRef, () => {
+  console.log("size changed");
+});
 </script>
 <template>
   <textarea ref="domRef"></textarea>
