@@ -23,13 +23,10 @@ export function useOpp<T, K>(status?: [T, K]): UseOppReturnType<T, K> {
   }
 
   const resultState = computed(() => {
-    return state.value === DEFAULT
-      ? status
-        ? status[0]
-        : DEFAULT
-      : status
-      ? status[1]
-      : OPPOSITE;
+    if (status) {
+      return state.value === DEFAULT ? status[0] : status[1]
+    }
+    return state.value
   });
 
   return [resultState as any, recover, reverse, opposite] as any;
