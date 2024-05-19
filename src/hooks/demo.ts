@@ -8,6 +8,7 @@ import UseFetchingAroundExecutionDemo from "@/hooks/useFetchingAroundExecution/d
 import UseDarkThemeListenerDemo from "@/hooks/useDarkThemeListener/demo.vue";
 import UseElementSizeDemo from "@/hooks/useElementSize/demo.vue";
 import UseCurrentDemo from "@/hooks/useCurrentTime/demo.vue";
+import UseNumberFlopper from "@/hooks/useNumberFlopper/demo.vue";
 
 export {
   UsePaginationDemo,
@@ -20,4 +21,5 @@ export {
   UseDarkThemeListenerDemo,
   UseElementSizeDemo,
   UseCurrentDemo,
+  UseNumberFlopper
 };
