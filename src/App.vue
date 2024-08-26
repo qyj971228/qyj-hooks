@@ -10,7 +10,7 @@ import {
   UseDarkThemeListenerDemo,
   UseElementSizeDemo,
   UseCurrentDemo,
-  UseNumberFlopper
+  UseNumberFlopper,
 } from "@/hooks/demo";
 </script>
 

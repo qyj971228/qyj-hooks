@@ -1,43 +1,47 @@
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from "vue";
 
-export function useInterval(callback: Function, delay: number, immediate: boolean = false) {
-  const interval = ref()
-  const timeout = ref()
+export function useInterval(
+  callback: Function,
+  delay: number,
+  immediate: boolean = false
+) {
+  const interval = ref();
+  const timeout = ref();
 
   function clear() {
     if (interval.value) {
-      clearInterval(interval.value)
-      interval.value = null
+      clearInterval(interval.value);
+      interval.value = null;
     }
     if (timeout.value) {
-      clearTimeout(timeout.value)
-      timeout.value = null
+      clearTimeout(timeout.value);
+      timeout.value = null;
     }
   }
 
-  function set() {
-    if (immediate) {
-      callback()
-      interval.value = setInterval(callback, delay)
+  function set(_immediate?: boolean) {
+    if (immediate || _immediate) {
+      callback();
+      interval.value = setInterval(callback, delay);
     } else {
       // 首次延迟执行回调
       timeout.value = setTimeout(() => {
-        callback()
-        interval.value = setInterval(callback, delay)
-      }, delay)
+        callback();
+        interval.value = setInterval(callback, delay);
+      }, delay);
     }
   }
 
   onMounted(() => {
-    set()
-  })
+    set();
+  });
 
   onBeforeUnmount(() => {
-    clear()
-  })
+    clear();
+  });
 
   return {
     clear,
-    reset: set
-  }
+    reset: set,
+  };
 }

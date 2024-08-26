@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import { useWindowEventListener } from '@/hooks'
-import { ref } from 'vue';
+import { useWindowEventListener } from "@/hooks";
+import { ref } from "vue";
 
-useWindowEventListener('mousemove', onMouseMove)
+useWindowEventListener("mousemove", onMouseMove);
 
 function onMouseMove(e: Event) {
-  x.value = (e as MouseEvent).clientX
-  y.value = (e as MouseEvent).clientY
+  x.value = (e as MouseEvent).clientX;
+  y.value = (e as MouseEvent).clientY;
 }
 
-const x = ref()
-const y = ref()
-
+const x = ref();
+const y = ref();
 </script>
 <template>
   <div>mouse x: {{ x }}</div>

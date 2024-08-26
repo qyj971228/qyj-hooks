@@ -21,5 +21,5 @@ export {
   UseDarkThemeListenerDemo,
   UseElementSizeDemo,
   UseCurrentDemo,
-  UseNumberFlopper
+  UseNumberFlopper,
 };

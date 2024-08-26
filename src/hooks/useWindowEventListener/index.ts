@@ -1,20 +1,20 @@
-import { onBeforeUnmount, onMounted } from 'vue'
+import { onBeforeUnmount, onMounted } from "vue";
 
 export function useWindowEventListener(event: string, callback: Function) {
   onMounted(() => {
-    add()
-  })
+    add();
+  });
   onBeforeUnmount(() => {
-    clear()
-  })
+    clear();
+  });
   function add() {
     window.addEventListener(event, (e) => {
-      callback(e)
-    })
+      callback(e);
+    });
   }
   function clear() {
     window.removeEventListener(event, (e) => {
-      callback(e)
-    })
+      callback(e);
+    });
   }
 }
