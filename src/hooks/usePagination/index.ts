@@ -33,7 +33,7 @@ export function usePagination<T>(
     }
     if (page < DEFAULT_PAGE_NUM) page = DEFAULT_PAGE_NUM;
     if (page > totalPage.value) page = totalPage.value;
-    pageNum.value = Math.floor(page);
+    pageNum.value = Math.floor(page) === 0 ? 1 : Math.floor(page);
   }
 
   function changeSize(size: number) {
